@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>movie detail</title>
+    <link rel="stylesheet" href="{% static 'tiketing/css/bootstrap.css' %}">
+</head>
+<body dir='rtl'>
+    <div class="container">
+        <div class="row">
+        <div class="col-8 bg-info">
+            <ul>
+                <li>{{ movie.name }}</li>
+                <li>{{ movie.director }}</li>
+            </ul>
+        </div>
+        <div class="col-4 bg-danger">
+            <img src="{{ movie.poster.url }}" alt="{{ movie.name }}">
+            <img src="{{ cinema.image.url }}" alt="{{ cinema.name }}">
+            
+        </div>
+    </div>
+    </div>
+</body>
+</html>
