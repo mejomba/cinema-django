@@ -151,6 +151,8 @@ ul.item-list > li > a {
 #movie-poster img {
     width: 100%;
     height: auto;
+    border: 1px solid blanchedalmond;
+    border-radius: 5px;
 }
 
 #movie-poster {
