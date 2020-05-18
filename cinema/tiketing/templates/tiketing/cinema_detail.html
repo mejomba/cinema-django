@@ -1,1 +1,26 @@
-<h3>cinema detail</h3>
+{% extends 'tiketing/tiketing-base.html' %}
+{% load static %}
+
+
+{% block nav_link %}<a class="nav-link" href="{% url 'tiketing:cinema_list' %}">سینما ها </a>{% endblock %}
+
+
+{% block main_content %}
+        <div class="row">
+        <div class="col-8" id="movie-detail">
+            <div class="list-group">
+                <a class="list-group-item">نام: {{ cinema.name }}</a>
+                <a class="list-group-item">ظرفیت: {{ cinema.capacity }}</a>
+                <a class="list-group-item">تلفن: {{ cinema.phone }}</a>
+                <a class="list-group-item">آدرس: {{ cinema.address }}</a>
+            </div>
+        </div>
+        <div class="col-4" id="movie-poster">
+            <img src="{{ cinema.image.url }}" alt="{{ cinema.name }}">
+        </div>
+    </div>
+        {% endblock %}
+
+
+
+
