@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from tiketing.models import Movie, Cinema, Sanse
+from .models import Movie, Cinema, Sanse
 
 def movie_list(request):
     movies = Movie.objects.all()
