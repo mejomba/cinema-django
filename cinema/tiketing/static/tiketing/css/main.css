@@ -163,3 +163,14 @@ ul.item-list > li > a {
      padding-left: 0;
 }
 
+.pad0 {
+    padding: 0;
+}
+
+.margin0 {
+    margin: 0;
+}
+
+.radius10 {
+    border-radius: 10px;
+}

@@ -1,0 +1,29 @@
+{% extends 'tiketing/tiketing-base.html' %}
+
+{% block nav_link %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'tiketing:movie_list' %}">فیلم ها </a>
+</li>
+<li class="nav-item">
+     <a class="nav-link" href="{% url 'tiketing:cinema_list' %}">سینما ها</a>
+</li>
+{% endblock %}
+
+{% block main_content %}
+<div class="row margin0">
+{% for sanse in sanses %}
+    <div class="col-sm-6 col-md-4 col-lg-3 btn btn-light border radius10 text-center py-2 my-1 {% if sanse.status != 2 %}disabled{% endif %}">
+        <div class="h5">{{sanse.movie.name}}</div>
+        <div>{{sanse.cinema.name}}</div>
+        <div>{{sanse.start_time}}</div>
+        <div class="badge badge-{% if sanse.status == 1%}warning{% elif sanse.status == 2%}success{% elif sanse.status == 3%}info{% elif sanse.status == 4%}danger{% else %}secondary{% endif %}">{{sanse.get_status_display}}</div>
+        {% if sanse.free_seat < 10 and sanse.status == 2%}
+        <span class="badge badge-danger">{{sanse.free_seat}} صندلی </span>
+        {% endif %}
+        {% if sanse.status == 2 %}
+        <a class="stretched-link" href="{% url 'tiketing:sanse_detail' sanse_id=sanse.pk%}"></a>
+        {% endif %}
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
